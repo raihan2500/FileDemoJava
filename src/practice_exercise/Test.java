@@ -1,9 +1,6 @@
 package practice_exercise;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.Scanner;
 
 public class Test {
@@ -11,9 +8,9 @@ public class Test {
         File input = new File("input.txt");
         File output = new File("output.txt");
 
-        try {
-            Scanner in = new Scanner(input);
+        try{
             PrintWriter out = new PrintWriter(output);
+            Scanner in = new Scanner(input);
             double total = 0;
             while(in.hasNextDouble()){
                 double num = in.nextDouble();
@@ -21,10 +18,20 @@ public class Test {
                 out.println("        " + num);
             }
             out.println("Total: " + total);
+            int x = 3 / 0;
             in.close();
-            out.close();
         }catch (FileNotFoundException e) {
             throw new RuntimeException(e);
+        }finally {
         }
+
+
+//        try{
+//            PrintStream out = new PrintStream(output);
+//            out.println("Java 1ta faltu language");
+//            out.close();
+//        } catch (FileNotFoundException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 }
